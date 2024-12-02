@@ -62,9 +62,25 @@ document.addEventListener('DOMContentLoaded', function () {
     
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
+
+    async function getRecipedetails() {
+        let url = "https://dummyjson.com/recipes?id" ;
+        let response = await fetch(url);
+        let data = await response.json();
+        return data.recipeDetails; 
+    }
+
+    async function fillCardsRecipeDetails() {
+        let recipeDetails = await getRecipedetails();
+    }
+
 });
+
     // déclarer l'état du coeur: vide ou plein 
     // faire un event listener au click avec toggle pr ajouter ou enlever la class "fill" du coeur : bi-heart (vide pas favori) ou bi-heart-fill (favori)
     // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
     // récupérer les recettes favorites à chaque ouverture de la page
+
+
+
 
