@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let description = card.querySelector('.card-text');
             let difficulty = card.querySelector('.difficulty');
             let link = card.querySelector('.btn-see');
+            let heart = card.querySelectorAll('.heart-icon');
 
             img.src = recipe.image; 
             img.alt = recipe.name;
@@ -27,8 +28,27 @@ document.addEventListener('DOMContentLoaded', function () {
             description.firstChild.textContent = recipe.cuisine; 
             difficulty.textContent = recipe.difficulty;
             link.href = `#recipe-${recipe.id}`; 
+
+            console.log(heart);
+
+            for(let i=0; i<heart.length; i++){
+                heart[i].addEventListener('click', function(){
+                    if (heart[i].classList.contains('bi-heart')) {
+                        heart[i].classList.remove("bi-heart");
+                        heart[i].classList.add("bi-heart-fill");
+                    } 
+                    else { 
+                    heart[i].classList.add("bi-heart");
+                    heart[i].classList.remove("bi-heart-fill");
+                    }
+                }); 
+            }
         }
     }
-
     fillCards();
+
+    // déclarer l'état du coeur: vide ou plein 
+    // faire un event listener au click avec toggle pr ajouter ou enlever la class "fill" du coeur : bi-heart (vide pas favori) ou bi-heart-fill (favori)
+    // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
+    // récupérer les recettes favorites à chaque ouverture de la page
 });
