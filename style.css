@@ -1,0 +1,100 @@
+/* Conteneur principal */
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F1DE;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+/* Grille pour les cartes */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px; 
+    margin-top: 20px;
+}
+
+/* Style des cartes */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.2em;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+/* Conteneur du pied de la carte */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Assure une séparation entre difficulté et bouton */
+    margin-top: 15px;
+}
+
+/* Style pour l'étiquette de difficulté */
+.difficulty {
+    display: inline-block;
+    color: grey; 
+    padding: 5px 10px; 
+    font-size: 0.8em; 
+    border: solid; 
+}
+
+.btn-see {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #E07A5F;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-see:hover {
+    background-color: #d95b4f;
+}
