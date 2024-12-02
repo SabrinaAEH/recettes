@@ -67,21 +67,20 @@ p {
     margin-bottom: 15px;
 }
 
-/* Conteneur du pied de la carte */
 .card-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Assure une séparation entre difficulté et bouton */
+    justify-content: space-between; 
     margin-top: 15px;
 }
 
-/* Style pour l'étiquette de difficulté */
+/* Style pour la difficulté */
 .difficulty {
     display: inline-block;
     color: grey; 
     padding: 5px 10px; 
     font-size: 0.8em; 
-    border: solid; 
+    border: solid 0.1rem; 
 }
 
 .btn-see {
@@ -97,4 +96,25 @@ p {
 
 .btn-see:hover {
     background-color: #d95b4f;
+}
+
+/* Style pour le texte */
+.card-text {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 1rem; 
+    color: #6c757d; 
+}
+
+/* Style pour l'icône coeur */
+.heart-icon {
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    transition: transform 0.2s ease; 
+    margin-left: 10px; 
+}
+
+.heart-icon:hover {
+    transform: scale(1.2); 
 }
