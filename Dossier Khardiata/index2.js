@@ -94,29 +94,54 @@ document.addEventListener('DOMContentLoaded', function () {
     // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
     // récupérer les recettes favorites à chaque ouverture de la page
 
+    let seetherecipe = document.querySelectorAll('.card .btn-see');
+    for(let i=0; i<seemore.length; i++){
+        seemore.addEventListener('click', function(){
+        window.location.href="recipe_details.html";
+    });
+    } 
 
     // Script de la page détails :
 
     async function getRecipeDetails() {
-        let url = "https://dummyjson.com/recipes?id" ;
+        let url = "https://dummyjson.com/recipes?id";
         let response = await fetch(url);
-        let data2 = await response.json();
-        return data2.recipeDetails; 
+        let data = await response.json();
+        return data.recipeDetails; 
     }
    
     async function fillCardBisRecipeDetails() {
-        let recipeDetails = await getRecipeDetails();
-        let cardbis = document.querySelectorAll('.card-bis');
-
+        let recipeDetails = await getRecipeDetails(); 
+        let cardBis = document.querySelector('.card-bis'); 
+    
         for (let i = 0; i < recipeDetails.length; i++) {
-            let img = card.querySelector('.card-img-top');
-            let title = card.querySelector('.card-title');
-            let ingredients = card.querySelector('.ingredients');
-            let difficulty = card.querySelector('.difficulty');
-            let instructions = card.querySelector('.instructions');
-            let time = card.querySelector('.time'); //prepTimeMinutes
+            let recipeDetails = recipeDetails[i];
+            let cardBis = cardBis[i];
+    
+            cardBis.querySelector('.card-img-left').src = recipeDetails.image;
+            cardBis.querySelector('.card-title').textContent = recipeDetails.title;
+            cardBis.querySelector('.difficulty').textContent = recipeDetails.difficulty;
+            cardBis.querySelector('.cuisine').textContent = recipeDetails.cuisine;
+            cardBis.querySelector('.time').textContent = `${recipeDetails.prepTimeMinutes} mins`;
+    
+            let ingredientsList = cardBis.querySelector('.ingredients ul');
+            ingredientsList.innerHTML = ""; 
+            recipeDetails.ingredients.forEach(ingredient => {
+                let li = document.createElement('li');
+                li.textContent = ingredient;
+                ingredientsList.appendChild(li);
+            });
+    
+            let instructionsList = cardBis.querySelector('.instructions ol');
+            instructionsList.innerHTML = ""; 
+            recipeDetails.instructions.forEach(instruction => {
+                let li = document.createElement('li');
+                li.textContent = instruction;
+                instructionsList.appendChild(li);
+            });
         }
     }
+    fillCardBisRecipeDetails();
 
 });
 
