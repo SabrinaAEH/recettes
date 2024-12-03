@@ -180,14 +180,21 @@ p{
 }
 .card-bis img{
     float:left;
-    margin-right: 1.5 em;
+    padding: 1em;
+    margin-right: 1em;
     clear:none;
-    width: 600px; 
+    width: 600px;
+    max-width: 100%; 
     height: auto; 
 }
 .container .card-bis article{
     text-align:left;
     padding: 1em;
+}
+
+.bi-alarm,
+.bi-reception-2 {
+    padding: 0.5em;
 }
 
 
