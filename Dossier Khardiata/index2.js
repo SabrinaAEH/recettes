@@ -88,24 +88,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     
-    
-
-     // déclarer l'état du coeur: vide ou plein 
+    // étapes de l'enregistrement des favoris:
+    // déclarer l'état du coeur: vide ou plein 
     // faire un event listener au click avec toggle pr ajouter ou enlever la class "fill" du coeur : bi-heart (vide pas favori) ou bi-heart-fill (favori)
     // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
     // récupérer les recettes favorites à chaque ouverture de la page
 
+
     // Script de la page détails :
 
-    async function getRecipedetails() {
+    async function getRecipeDetails() {
         let url = "https://dummyjson.com/recipes?id" ;
         let response = await fetch(url);
-        let data = await response.json();
-        return data.recipeDetails; 
+        let data2 = await response.json();
+        return data2.recipeDetails; 
     }
+   
+    async function fillCardBisRecipeDetails() {
+        let recipeDetails = await getRecipeDetails();
+        let cardbis = document.querySelectorAll('.card-bis');
 
-    async function fillCardsRecipeDetails() {
-        let recipeDetails = await getRecipedetails();
+        for (let i = 0; i < recipeDetails.length; i++) {
+            let img = card.querySelector('.card-img-top');
+            let title = card.querySelector('.card-title');
+            let ingredients = card.querySelector('.ingredients');
+            let difficulty = card.querySelector('.difficulty');
+            let instructions = card.querySelector('.instructions');
+            let time = card.querySelector('.time'); //prepTimeMinutes
+        }
     }
 
 });

@@ -163,6 +163,31 @@ p{
     transform: scale(1.2); 
 }
 
+/*PAGE DETAILS*/
+.char{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    
+}
+
+.card-bis {
+    background-color: white;
+    border: 1px solid #ddd;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+.card-bis img{
+    float:left;
+    margin-right: 1.5 em;
+    clear:none;
+}
+.container .card-bis article{
+    text-align:left;
+    padding: 1em;
+}
+
 /* TABLETTE*/
 @media screen and (min-width:780px){
     /*GRILLE*/
