@@ -135,16 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
         difficulty.textContent = recipeDetails.difficulty;
         time.textContent = `${recipeDetails.prepTimeMinutes} minutes`;
     
-        let ingredientsList = cardBis.querySelector('.ingredients ul');
-        ingredientsList.innerHTML = "";
+        let ingredientsList = cardBis.querySelector('.ingredients');
         recipeDetails.ingredients.forEach(ingredient => {
         let li = document.createElement('li');
         li.textContent = ingredient;
         ingredientsList.appendChild(li);
         });
 
-        let instructionsList = cardBis.querySelector('.instructions ol');
-        instructionsList.innerHTML = "";
+        let instructionsList = cardBis.querySelector('.instructions');
         recipeDetails.instructions.forEach(instruction => {
         let li = document.createElement('li');
         li.textContent = instruction;

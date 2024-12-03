@@ -182,6 +182,8 @@ p{
     float:left;
     margin-right: 1.5 em;
     clear:none;
+    width: 600px; 
+    height: auto; 
 }
 .container .card-bis article{
     text-align:left;
