@@ -101,13 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
     // récupérer les recettes favorites à chaque ouverture de la page
 
-    /* let seetherecipe = document.querySelectorAll('.card .btn-see');
-    for(let i=0; i<seemore.length; i++){
-        seemore.addEventListener('click', function(){
-        window.location.href="recipe_details.html";
-    });
-    } */
-
     // Script de la page détails :
 
     async function getRecipeDetails(recipeId) {
