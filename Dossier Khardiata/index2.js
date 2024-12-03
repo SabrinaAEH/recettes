@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }); 
             }
         }
+        restoreFavorites();
     }
     fillCards();
 
@@ -63,6 +64,39 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
+    function restoreFavorites() {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || []; 
+        let cards = document.querySelectorAll('.card');
+    
+        for (let card of cards) {
+            let title = card.querySelector('.card-title').textContent;
+            let heart = card.querySelector('.heart-icon');
+    
+            let isFavorite = false;
+            for (let i = 0; i < favorites.length; i++) {
+                if (favorites[i].title === title) {
+                    isFavorite = true;
+                    break;
+                }
+            }
+    
+            if (isFavorite) {
+                heart.classList.remove('bi-heart');
+                heart.classList.add('bi-heart-fill');
+            }
+        }
+    }
+    
+    
+    
+
+     // déclarer l'état du coeur: vide ou plein 
+    // faire un event listener au click avec toggle pr ajouter ou enlever la class "fill" du coeur : bi-heart (vide pas favori) ou bi-heart-fill (favori)
+    // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
+    // récupérer les recettes favorites à chaque ouverture de la page
+
+    // Script de la page détails :
+
     async function getRecipedetails() {
         let url = "https://dummyjson.com/recipes?id" ;
         let response = await fetch(url);
@@ -76,10 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-    // déclarer l'état du coeur: vide ou plein 
-    // faire un event listener au click avec toggle pr ajouter ou enlever la class "fill" du coeur : bi-heart (vide pas favori) ou bi-heart-fill (favori)
-    // ma recette a un coeur bi-heart-fill => je push ma recette dans mon local storage ( localStorage.setItem() )
-    // récupérer les recettes favorites à chaque ouverture de la page
+   
 
 
 
